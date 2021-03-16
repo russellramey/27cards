@@ -1,28 +1,50 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
+    <div id="app">
+        <template v-if="store.status.step === 1">
+            <Step1></Step1>
+        </template>
+
+        <template v-if="store.status.step === 2">
+            <Step2></Step2>
+        </template>
+
+        <template v-if="store.status.step === 3">
+            <Step3></Step3>
+        </template>
+    </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+// Imports
+import Store from './store'
+import Step1 from './components/steps/Step1'
+import Step2 from './components/steps/Step2'
+import Step3 from './components/steps/Step3'
 
+// Export
 export default {
-  name: 'App',
-  components: {
-    HelloWorld
-  }
+    // Component name
+    name: 'App',
+    // Component children
+    components: {
+        Step1,
+        Step2,
+        Step3
+    },
+    // Component data
+    data(){
+        return{
+            store: Store
+        }
+    },
+    // Component methods
+    methods: {
+
+    }
 }
 </script>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+
+<style scoped lang="scss">
+
 </style>
