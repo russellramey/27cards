@@ -2,8 +2,11 @@
     <div class="step-3" :class="{done: (round === 3)}">
         <template v-if="store.cards.stacks">
             <div v-for="(stack, index) in store.cards.stacks" class="card-stack" :key="index">
+                <div class="cards">
+                    <Card v-for="(card, index) in stack" :data="card" :key="index"></Card>
+                </div>
                 <button @click="select(index)">My card is in this pile</button>
-                <Card v-for="(card, index) in stack" :data="card" :key="index"></Card>
+
             </div>
         </template>
     </div>
@@ -84,9 +87,25 @@ export default {
 
 <style scoped lang="scss">
 .card-stack{
-    display: flex;
-    flex-wrap: wrap;
+    margin: 0 auto;
+    padding: 2rem;
+    &:hover{
+        background: #e4e4e4;
+    }
+    .cards{
+        display: flex;
+        justify-content: center;
+        overflow: auto;
+        @media screen and (max-width: 1560px){
+            justify-content: flex-start;
+        }
+    }
+    button{
+        margin: 0 auto;
+        display: block;
+    }
 }
+
 .step-3.done{
     .card-stack{
         .card{
@@ -95,7 +114,7 @@ export default {
         }
         .card:last-child{
             opacity: 1;
-            display: block;
+            display: flex;
         }
     }
 }

@@ -52,36 +52,50 @@ export default {
 
 <style scoped lang="scss">
 .card{
-    border: 1px solid #ccc;
+    border: 1px solid #e4e4e4;
     background: #fff;
-    padding: 1rem;
+    padding: .75rem;
     border-radius: .5rem;
     width: 100%;
-    max-width: 120px;
-    min-width: 120px;
-    min-height: 200px;
+    max-width: 150px;
+    min-width: 150px;
+    min-height: 225px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     font-size: 1.5rem;
     margin: .5rem;
+    box-shadow: 0 0 .5rem rgba(0,0,0,.125);
+    box-sizing: border-box;
     >div{
         flex:1;
+    }
+    .card-suite{
+        font-size: 1.25rem;
+        position: relative;
     }
     .card-header{
         display: flex;
         flex-direction: row;
+        .card-suite{
+            top: 3px;
+        }
     }
     .card-body{
         display: flex;
         flex-direction: row;
         justify-content: center;
         align-items: center;
-        font-size: 3.5rem;
+        .card-suite{
+            font-size: 3.5rem;
+        }
     }
     .card-footer{
         display: flex;
         flex-direction: row-reverse;
+        .card-suite{
+            bottom: 3px;
+        }
         span{
             transform: rotate(180deg);
         }
@@ -94,5 +108,6 @@ export default {
     &.card-dimonds{
         color: red;
     }
+
 }
 </style>

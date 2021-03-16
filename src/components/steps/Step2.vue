@@ -49,5 +49,6 @@ export default {
 .card-set{
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
 }
 </style>

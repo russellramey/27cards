@@ -45,6 +45,12 @@ export default {
 </script>
 
 
-<style scoped lang="scss">
-
+<style lang="scss">
+body{
+    background: #eeeeee;
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    line-height: 1;
+}
 </style>
