@@ -11,6 +11,10 @@
         <template v-if="store.status.step === 3">
             <Step3></Step3>
         </template>
+
+        <template v-if="store.status.step === 4">
+            <Step4></Step4>
+        </template>
     </div>
 </template>
 
@@ -20,6 +24,7 @@ import Store from './store'
 import Step1 from './components/steps/Step1'
 import Step2 from './components/steps/Step2'
 import Step3 from './components/steps/Step3'
+import Step4 from './components/steps/Step4'
 
 // Export
 export default {
@@ -29,7 +34,8 @@ export default {
     components: {
         Step1,
         Step2,
-        Step3
+        Step3,
+        Step4
     },
     // Component data
     data(){

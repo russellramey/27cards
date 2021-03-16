@@ -1,10 +1,11 @@
 <template>
     <div class="step-2">
+        <h1>Think about any card from the options below</h1>
         <template v-if="store.cards.set">
             <div class="card-set">
                 <Card v-for="(card, index) in store.cards.set" :data="card" :key="index"></Card>
             </div>
-            <button @click="selected">I have selected my card</button>
+            <button @click="selected">I am ready</button>
         </template>
     </div>
 </template>

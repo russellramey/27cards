@@ -1,11 +1,13 @@
 <template>
     <div class="step-3" :class="{done: (round === 3)}">
+        <h1 v-if="round<3">Select the row your card appears in <span v-if="round===1">again</span> <span v-if="round===2">one more time</span>:</h1>
+        <h1 v-else>Your card was:</h1>
         <template v-if="store.cards.stacks">
             <div v-for="(stack, index) in store.cards.stacks" class="card-stack" :key="index">
                 <div class="cards">
                     <Card v-for="(card, index) in stack" :data="card" :key="index"></Card>
                 </div>
-                <button @click="select(index)">My card is in this pile</button>
+                <button @click="select(index)">My card is in this row</button>
 
             </div>
         </template>
@@ -56,8 +58,10 @@ export default {
 
 
                 if(this.round === 2){
-                    this.store.cards.stacks = [array.flat().splice(0, this.store.user.number)]
-
+                    //this.store.cards.stacks = [array.flat().splice(0, this.store.user.number)]
+                    // Set last card in array to user card
+                    this.store.user.card = array.flat().splice(0, this.store.user.number).pop();
+                    this.store.status.step = 4;
                 } else {
                     console.log(array);
 
