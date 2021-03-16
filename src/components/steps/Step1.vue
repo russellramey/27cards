@@ -1,6 +1,10 @@
 <template>
     <div class="step-1">
-        <button @click="start">Start</button>
+        <h1><b>Want to see a magic trick?</b><br />I can guess the card you are thinking of...</h1>
+        <h3><em>(with a little help from you, of course)</em></h3>
+        <p style="text-align:center;">
+            <button @click="start">Sure, try me</button>
+        </p>
     </div>
 </template>
 

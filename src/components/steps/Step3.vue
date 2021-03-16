@@ -3,12 +3,10 @@
         <h1 v-if="round<3">Select the row your card appears in <span v-if="round===1">again</span> <span v-if="round===2">one more time</span>:</h1>
         <h1 v-else>Your card was:</h1>
         <template v-if="store.cards.stacks">
-            <div v-for="(stack, index) in store.cards.stacks" class="card-stack" :key="index">
+            <div v-for="(stack, index) in store.cards.stacks" class="card-stack" :key="index" @click="select(index)">
                 <div class="cards">
                     <Card v-for="(card, index) in stack" :data="card" :key="index"></Card>
                 </div>
-                <button @click="select(index)">My card is in this row</button>
-
             </div>
         </template>
     </div>
@@ -93,8 +91,10 @@ export default {
 .card-stack{
     margin: 0 auto;
     padding: 2rem;
+    transition: all 150ms ease-in-out;
+    cursor: pointer;
     &:hover{
-        background: #e4e4e4;
+        background: rgba(0,0,0,.333333);
     }
     .cards{
         display: flex;

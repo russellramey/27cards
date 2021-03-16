@@ -1,7 +1,9 @@
 <template>
-    <div class="step-1">
+    <div class="step-4">
         <h1>This is your card</h1>
-        <Card :data="this.store.user.card"></Card>
+        <div class="user-card">
+            <Card :data="this.store.user.card"></Card>
+        </div>
     </div>
 </template>
 
@@ -32,5 +34,14 @@ export default {
 </script>
 
 <style scoped lang="scss">
-
+.user-card{
+    display: block;
+    height: auto;
+    .card{
+        position: relative;
+        transform: scale(1.75);
+        margin: 0 auto;
+        margin-top: 8rem;
+    }
+}
 </style>
