@@ -36,7 +36,7 @@ export default {
             // This
             let t = this;
             // Set card delay
-            let delay = 100 * this.index;
+            let delay = 150 * this.index;
             // Setimeout for card
             setTimeout(function(){
                 // Toggle mounted true

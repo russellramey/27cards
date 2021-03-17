@@ -2,10 +2,12 @@
     <div class="step-3" :key="round">
         <h1>Select the row your card appears in<span v-if="round===1"> again</span><span v-if="round===2"> one more time</span>...</h1>
         <template v-if="store.cards.stacks.length > 0">
-            <div v-for="(stack, index) in store.cards.stacks" class="card-stack" :key="index" @click="select(index)">
-                <div class="cards">
-                    <Card v-for="(card, index) in stack" :data="card" :index="index" :key="index" @loading="loading"></Card>
-                </div>
+            <div v-for="(stack, index) in store.cards.stacks" class="card-row" :key="index" @click="select(index)">
+                <ul class="card-list">
+                    <li v-for="(card, index) in stack" :key="index">
+                        <Card  :data="card" :index="index" @loading="loading"></Card>
+                    </li>
+                </ul>
             </div>
         </template>
     </div>
@@ -101,18 +103,23 @@ export default {
 
 <style scoped lang="scss">
 .step-3{
-    .card-stack{
-        margin: 0 auto;
-        padding: 2rem;
+    .card-row{
+        margin: 0 -1rem;
+        padding: 2rem 1rem;
         transition: all 150ms ease-in-out;
         cursor: pointer;
         &:hover{
             background: rgba(0,0,0,.333333);
         }
-        .cards{
+        .card-list{
             display: flex;
             justify-content: center;
             overflow: auto;
+            -ms-overflow-style: none;  /* IE and Edge */
+            scrollbar-width: none;  /* Firefox */
+            &::-webkit-scrollbar {
+                display: none;
+            }
             @media screen and (max-width: 1560px){
                 justify-content: flex-start;
             }

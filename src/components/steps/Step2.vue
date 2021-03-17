@@ -5,9 +5,11 @@
             <button @click="next" :disabled="store.status.loading">Ok, I got one</button>
         </p>
         <template v-if="store.cards.set">
-            <div class="card-set">
-                <Card v-for="(card, index) in store.cards.set" :data="card" :index="index" :key="index" @loading="loading"></Card>
-            </div>
+            <ul class="card-set">
+                <li v-for="(card, index) in store.cards.set" :key="index">
+                    <Card :data="card" :index="index"  @loading="loading"></Card>
+                </li>
+            </ul>
         </template>
     </div>
 </template>
