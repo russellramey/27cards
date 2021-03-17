@@ -25,6 +25,7 @@ export default {
     },
     // Component methods
     methods: {
+        // Start, initiate start of the trick
         start(){
             // create set of cards for trick
             let set = this.$utilities.shuffle(this.store.cards.deck);
@@ -33,14 +34,19 @@ export default {
             // Go to next step
             this.store.status.step = 2;
             // Set base3 array/order
-            this.base3(this.getRandomArbitrary(1,27));
+            this.store.user.stack_order =  this.orderArray(this.randomInteger(1,27));
         },
-        getRandomArbitrary(min, max) {
-          let number =  Math.round(Math.random() * (max - min) + min);
-          this.store.user.number = number;
-          return number;
-      },
-        base3(int){
+        // Generate random number
+        randomInteger(min, max) {
+            // Generagte number
+            let number =  Math.round(Math.random() * (max - min) + min);
+            // Save number to store
+            this.store.user.number = number;
+            // Return number
+            return number;
+        },
+        // Restack order array, based on results of base3 algorithm
+        orderArray(int){
             // Resulting array
             let result = [];
             // Initial base3 results
@@ -55,11 +61,8 @@ export default {
                 result.push(base[1]);
             }
             // Return resulting array
-            this.store.user.stack_order = result;
+            return result;
         }
-    },
-    // Component computed data
-    computed: {
     }
 }
 </script>

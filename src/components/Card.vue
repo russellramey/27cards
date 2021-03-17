@@ -23,10 +23,9 @@ export default {
     props: {
         data: Object
     },
-    methods: {
-    },
     // Component computed data
     computed: {
+        // Card suite icon
         suite(){
             let suite = '';
             switch(this.data.suite) {
@@ -111,7 +110,6 @@ export default {
     &.card-dimonds{
         color: red;
     }
-
     &::before{
         content: '';
         display: block;
@@ -124,7 +122,7 @@ export default {
         z-index: 1;
         border: 1px solid #e4e4e4;
         transform: rotate(45deg) translate(55%, 5%);
-        opacity: .4;
+        opacity: .333333;
     }
 }
 </style>

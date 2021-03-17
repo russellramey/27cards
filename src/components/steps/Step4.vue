@@ -19,29 +19,26 @@ export default {
     components:{
         Card
     },
+    // Component data
     data(){
         return{
             store: Store
         }
-    },
-    // Component methods
-    methods: {
-    },
-    // Component computed data
-    computed: {
     }
 }
 </script>
 
 <style scoped lang="scss">
-.user-card{
-    display: block;
-    height: auto;
-    .card{
-        position: relative;
-        transform: scale(1.75);
-        margin: 0 auto;
-        margin-top: 8rem;
+.step-4{
+    .user-card{
+        display: block;
+        height: auto;
+        .card{
+            position: relative;
+            transform: scale(1.75);
+            margin: 0 auto;
+            margin-top: 8rem;
+        }
     }
 }
 </style>

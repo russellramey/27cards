@@ -1,20 +1,6 @@
 <template>
     <div id="app">
-        <template v-if="store.status.step === 1">
-            <Step1></Step1>
-        </template>
-
-        <template v-if="store.status.step === 2">
-            <Step2></Step2>
-        </template>
-
-        <template v-if="store.status.step === 3">
-            <Step3></Step3>
-        </template>
-
-        <template v-if="store.status.step === 4">
-            <Step4></Step4>
-        </template>
+        <component :is="'Step' + store.status.step"></component>
     </div>
 </template>
 
@@ -42,10 +28,6 @@ export default {
         return{
             store: Store
         }
-    },
-    // Component methods
-    methods: {
-
     }
 }
 </script>
@@ -63,7 +45,6 @@ body{
     background: radial-gradient(ellipse at top, #161616 0%, #111 100%);
     color: #fff;
     height: 100vh;
-
     &::before{
         content: " ";
         display: block;
@@ -86,29 +67,29 @@ body{
         text-align: center;
         line-height: 1.25;
     }
-}
-#app{
-    padding: 1rem;
-    overflow: auto;
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
 
-    button{
-        background: #3399cc;
-        border-radius: 1.5rem;
-        border: none;
-        padding: 1rem 2rem;
-        text-transform: uppercase;
-        color: white;
-        font-size: 1rem;
-        cursor: pointer;
-        transition: all 150ms ease-in-out;
-        z-index: 1;
-        &:hover{
-            background: darken(#3399cc, 20);
+    #app{
+        padding: 1rem;
+        overflow: auto;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        button{
+            background: #3399cc;
+            border-radius: 1.5rem;
+            border: none;
+            padding: 1rem 2rem;
+            text-transform: uppercase;
+            color: white;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 150ms ease-in-out;
+            z-index: 1;
+            &:hover{
+                background: darken(#3399cc, 20);
+            }
         }
     }
 }
