@@ -1,6 +1,6 @@
 <template>
     <div class="step-2">
-        <h1>Pick a card from the options below, and remember it...</h1>
+        <h1>Pick a card <b>from these 27</b>, and remember it...</h1>
         <p style="text-align:center;">
             <button @click="next" :disabled="store.status.loading">Ok, I got one</button>
         </p>
