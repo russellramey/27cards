@@ -1,7 +1,8 @@
 <template>
-    <div class="step-3" :key="round">
+    <div ref="step" class="step-3" :key="round">
         <template v-if="round===0">
             <h1>Select the row <b>your card</b> appears in...</h1>
+            <h3>You will do this 3 times</h3>
         </template>
         <template v-if="round===1">
             <h1>Again, select the row <b>your card</b> appears in...</h1>
@@ -16,7 +17,7 @@
                         <Card  :data="card" :index="index" @loading="loading"></Card>
                     </li>
                 </ul>
-                
+
                 <template v-if="!store.status.loading">
                     <button @click="select(index)">Select</button>
                 </template>
@@ -92,6 +93,9 @@ export default {
                 // Reset card count (loading)
                 this.count=0;
             }
+
+            // Scroll back to top
+            this.$refs.step.scrollIntoView();
         },
         // Is loading
         loading(){
