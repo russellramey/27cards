@@ -37,7 +37,7 @@ export default {
             position: relative;
             transform: scale(1.75);
             margin: 0 auto;
-            margin-top: 8rem;
+            margin-top: 7rem;
         }
     }
 }

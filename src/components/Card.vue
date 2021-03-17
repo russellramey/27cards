@@ -153,6 +153,7 @@ export default {
         width: 110%;
         height: 110%;
         background: #f4f4f4;
+        background: linear-gradient(to left, #ffffff 50%, #f4f4f4);
         z-index: 1;
         border: 1px solid #e4e4e4;
         transform: rotate(45deg) translate(55%, 5%);

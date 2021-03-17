@@ -1,6 +1,10 @@
 <template>
     <div id="app">
-        <component :is="'Step' + store.status.step"></component>
+        <div class="banner top-banner"></div>
+        <div class="wrapper">
+            <component :is="'Step' + store.status.step"></component>
+        </div>
+        <div class="banner top-banner"></div>
     </div>
 </template>
 
@@ -69,13 +73,21 @@ body{
     }
 
     #app{
-        padding: 1rem;
         overflow: auto;
         position: fixed;
+        display: flex;
+        flex-direction: column;
         top: 0;
         left: 0;
         right: 0;
         bottom: 0;
+        .banner{
+        }
+        .wrapper{
+            overflow: auto;
+            padding: 1rem;
+            flex:1;
+        }
         button{
             background: #3399cc;
             border-radius: 1.5rem;
