@@ -2,11 +2,11 @@
     <div class="step-2">
         <h1>Pick a card from the options below, and remember it...</h1>
         <p style="text-align:center;">
-            <button @click="next">Ok, I got one</button>
+            <button @click="next" :disabled="store.status.loading">Ok, I got one</button>
         </p>
         <template v-if="store.cards.set">
             <div class="card-set">
-                <Card v-for="(card, index) in store.cards.set" :data="card" :key="index"></Card>
+                <Card v-for="(card, index) in store.cards.set" :data="card" :index="index" :key="index" @loading="loading"></Card>
             </div>
         </template>
     </div>
@@ -27,7 +27,8 @@ export default {
     // Component data
     data(){
         return {
-            store: Store
+            store: Store,
+            count: 0
         }
     },
     // Component methods
@@ -39,9 +40,22 @@ export default {
             // Store first 27 cards of shuffled deck as the current set
             this.store.cards.set = set.splice(0,27);
         },
-        // Continue to next step (2)
+        // Navigate next step
         next(){
+            // Set status to next step (3)
             this.store.status.step = 3
+        },
+        // Is loading
+        loading(){
+            // Set loading status to true
+            this.store.status.loading = true;
+            // If all cards mounted
+            if(this.count >= 26){
+                // Set loading status to false
+                this.store.status.loading = false;
+            }
+            // Increase count
+            this.count++
         }
     },
     // Component mounted

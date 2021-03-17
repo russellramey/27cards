@@ -1,5 +1,5 @@
 <template>
-    <div class="card" :class="'card-' + data.suite">
+    <div class="card" :class="'card-' + data.suite" :data-visible="mounted">
         <div class="card-header">
             <span class="card-rank">{{ data.rank }}</span>
             <span class="card-suite" v-html="suite"></span>
@@ -21,13 +21,38 @@ export default {
     name: 'Card',
     // Component parent data
     props: {
-        data: Object
+        data: Object,
+        index: Number
+    },
+    data(){
+        return{
+            mounted: false
+        }
+    },
+    // Component methods
+    methods:{
+        // Fade in card on timeout delay
+        fadeIn(){
+            // This
+            let t = this;
+            // Set card delay
+            let delay = 100 * this.index;
+            // Setimeout for card
+            setTimeout(function(){
+                // Toggle mounted true
+                t.mounted=true;
+                // Emit to parent
+                t.$emit('loading', t.mounted);
+            }, delay);
+        }
     },
     // Component computed data
     computed: {
         // Card suite icon
         suite(){
+            // Suite placeholder
             let suite = '';
+            // Switch case to set suite html entity
             switch(this.data.suite) {
                 case 'clubs':
                     suite = "&clubs;";
@@ -42,9 +67,13 @@ export default {
                     suite = "&spades;";
                     break;
             }
-            // Return suite
+            // Return suite string
             return suite;
         }
+    },
+    // Component mounted
+    mounted(){
+        this.fadeIn()
     }
 }
 </script>
@@ -69,6 +98,8 @@ export default {
     position: relative;
     overflow: hidden;
     font-weight: normal;
+    opacity: 0;
+    transition: opacity 200ms ease-in-out;
     >div{
         flex:1;
     }
@@ -109,6 +140,9 @@ export default {
     &.card-hearts,
     &.card-dimonds{
         color: red;
+    }
+    &[data-visible="true"]{
+        opacity: 1;
     }
     &::before{
         content: '';
