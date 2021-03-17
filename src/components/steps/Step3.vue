@@ -116,9 +116,12 @@ export default {
         padding: 2rem 1rem;
         transition: all 150ms ease-in-out;
         cursor: pointer;
-        &:hover{
-            background: rgba(#31b98e,.75);
+        @media (hover: hover) {
+            &:hover{
+                background: rgba(#31b98e,.75);
+            }
         }
+
         .card-list{
             display: flex;
             justify-content: center;

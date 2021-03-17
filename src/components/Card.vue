@@ -93,7 +93,7 @@ export default {
     justify-content: center;
     font-size: 1.5rem;
     margin: .5rem;
-    box-shadow: 0 0 .5rem rgba(0,0,0,.25);
+    box-shadow: 0 0 .75rem rgba(0,0,0,.5);
     box-sizing: border-box;
     position: relative;
     overflow: hidden;
