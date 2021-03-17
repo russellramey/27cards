@@ -1,21 +1,26 @@
 <template>
     <div class="step-3" :key="round">
         <template v-if="round===0">
-            <h1>Select the row your card appears in...</h1>
+            <h1>Select the row <b>your card</b> appears in...</h1>
         </template>
         <template v-if="round===1">
-            <h1>Again, select the row your card appears in...</h1>
+            <h1>Again, select the row <b>your card</b> appears in...</h1>
         </template>
         <template v-if="round===2">
-            <h1>One last time, select the row your card appears in...</h1>
+            <h1>One last time, select the row <b>your card</b> appears in...</h1>
         </template>
         <template v-if="store.cards.stacks.length > 0">
-            <div v-for="(stack, index) in store.cards.stacks" class="card-row" :key="index" @click="select(index)">
+            <div v-for="(stack, index) in store.cards.stacks" class="card-row" :key="index" >
                 <ul class="card-list">
                     <li v-for="(card, index) in stack" :key="index">
                         <Card  :data="card" :index="index" @loading="loading"></Card>
                     </li>
                 </ul>
+                
+                <template v-if="!store.status.loading">
+                    <button @click="select(index)">Select</button>
+                </template>
+
             </div>
         </template>
     </div>
@@ -115,12 +120,13 @@ export default {
         margin: 0 -1rem;
         padding: 2rem 1rem;
         transition: all 150ms ease-in-out;
-        cursor: pointer;
-        @media (hover: hover) {
-            &:hover{
-                background: rgba(#31b98e,.75);
-            }
-        }
+        position: relative;
+        //cursor: pointer;
+        // @media (hover: hover) {
+        //     &:hover{
+        //         background: rgba(#31b98e,.75);
+        //     }
+        // }
 
         .card-list{
             display: flex;
@@ -138,6 +144,10 @@ export default {
         button{
             margin: 0 auto;
             display: block;
+            position: absolute;
+            left: 50%;
+            bottom: 1rem;
+            transform: translate(-50%, 0);
         }
     }
 }
