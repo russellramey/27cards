@@ -1,6 +1,6 @@
 <template>
     <div class="step-4">
-        <h1>This is your card</h1>
+        <h1>Your card is...</h1>
         <div class="user-card">
             <Card :data="this.store.user.card"></Card>
         </div>

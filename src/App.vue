@@ -89,7 +89,7 @@ body{
             flex:1;
         }
         button{
-            background: #3399cc;
+            background: #31b98e;
             border-radius: 1.5rem;
             border: none;
             padding: 1rem 2rem;
@@ -100,7 +100,7 @@ body{
             transition: all 150ms ease-in-out;
             z-index: 1;
             &:hover{
-                background: darken(#3399cc, 20);
+                background: darken(#31b98e, 20);
             }
         }
 

@@ -1,7 +1,6 @@
 <template>
     <div class="step-1">
-        <h1><b>Want to see a magic trick?</b><br />I can guess the card you are thinking of...</h1>
-        <h3><em>(with a little help from you, of course)</em></h3>
+        <h1>Do you want to see a magic trick?</h1>
         <p style="text-align:center;">
             <button @click="start">Sure, try me</button>
         </p>

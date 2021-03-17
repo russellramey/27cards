@@ -1,6 +1,14 @@
 <template>
     <div class="step-3" :key="round">
-        <h1>Select the row your card appears in<span v-if="round===1"> again</span><span v-if="round===2"> one last time</span>...</h1>
+        <template v-if="round===0">
+            <h1>Select the row your card appears in...</h1>
+        </template>
+        <template v-if="round===1">
+            <h1>Again, select the row your card appears in...</h1>
+        </template>
+        <template v-if="round===2">
+            <h1>One last time, select the row your card appears in...</h1>
+        </template>
         <template v-if="store.cards.stacks.length > 0">
             <div v-for="(stack, index) in store.cards.stacks" class="card-row" :key="index" @click="select(index)">
                 <ul class="card-list">
@@ -109,7 +117,7 @@ export default {
         transition: all 150ms ease-in-out;
         cursor: pointer;
         &:hover{
-            background: rgba(0,0,0,.333333);
+            background: rgba(#31b98e,.75);
         }
         .card-list{
             display: flex;
