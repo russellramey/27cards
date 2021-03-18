@@ -38,13 +38,6 @@ export default {
     },
     // Component methods
     methods: {
-        // Create working set of cards
-        createSet(){
-            // Generate set of cards from main deck object
-            let set = this.$utilities.shuffle(this.store.cards.deck);
-            // Store first 27 cards of shuffled deck as the current set
-            this.store.cards.set = set.splice(0,27);
-        },
         // Navigate next step
         next(){
             // Set status to next step (3)
@@ -64,11 +57,6 @@ export default {
             // Increase count
             this.count++
         }
-    },
-    // Component mounted
-    mounted(){
-        // Fire createSet
-        this.createSet();
     }
 }
 </script>

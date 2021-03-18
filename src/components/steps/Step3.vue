@@ -12,7 +12,7 @@
         </template>
         <template v-if="store.cards.stacks.length > 0">
             <div v-for="(stack, index) in store.cards.stacks" class="card-row" :key="index" >
-                <ul class="card-list">
+                <ul ref="row" class="card-list">
                     <li v-for="(card, index) in stack" :key="index">
                         <Card  :data="card" :index="index" @loading="loading"></Card>
                     </li>
@@ -114,6 +114,12 @@ export default {
     mounted(){
         // Deal initial set of cards, round 0
         this.deal(this.store.cards.set);
+        this.$nextTick(() => {
+            this.$refs.row.forEach(e => {
+                this.$utilities.draggable(e)
+                console.log(e)
+            })
+        })
     }
 }
 </script>
@@ -125,17 +131,11 @@ export default {
         padding: 2rem 1rem;
         transition: all 150ms ease-in-out;
         position: relative;
-        //cursor: pointer;
-        // @media (hover: hover) {
-        //     &:hover{
-        //         background: rgba(#31b98e,.75);
-        //     }
-        // }
-
         .card-list{
             display: flex;
             justify-content: center;
             overflow: auto;
+            cursor: grab;
             -ms-overflow-style: none;  /* IE and Edge */
             scrollbar-width: none;  /* Firefox */
             &::-webkit-scrollbar {

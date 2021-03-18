@@ -95,7 +95,7 @@ body{
             padding: 1rem 2rem;
             text-transform: uppercase;
             color: white;
-            font-size: 1rem;
+            font-size: 1.25rem;
             cursor: pointer;
             transition: all 150ms ease-in-out;
             z-index: 1;
