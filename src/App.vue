@@ -99,6 +99,7 @@ body{
             cursor: pointer;
             transition: all 150ms ease-in-out;
             z-index: 1;
+            font-weight: bold;
             &:hover{
                 background: darken(#31b98e, 20);
             }

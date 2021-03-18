@@ -19,7 +19,7 @@
                 </ul>
 
                 <template v-if="!store.status.loading">
-                    <button @click="select(index)">Select</button>
+                    <button @click="select(index)">Row {{index+1}}</button>
                 </template>
 
             </div>
