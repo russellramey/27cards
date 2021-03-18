@@ -92,6 +92,8 @@ export default {
                 this.round++
                 // Reset card count (loading)
                 this.count=0;
+                // Initiate draggable
+                this.drag();
             }
 
             // Scroll back to top
@@ -108,18 +110,22 @@ export default {
             }
             // Increase count
             this.count++
+        },
+        // Invoke dragglbe on nextTick for each row
+        drag(){
+            this.$nextTick(() => {
+                this.$refs.row.forEach(e => {
+                    this.$utilities.draggable(e)
+                })
+            })
         }
     },
     // Component mounted
     mounted(){
         // Deal initial set of cards, round 0
         this.deal(this.store.cards.set);
-        this.$nextTick(() => {
-            this.$refs.row.forEach(e => {
-                this.$utilities.draggable(e)
-                console.log(e)
-            })
-        })
+        // Initiate draggable
+        this.drag();
     }
 }
 </script>
