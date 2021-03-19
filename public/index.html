@@ -1,26 +1,38 @@
 <!DOCTYPE html>
 <html lang="">
-  <head>
+<head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <link rel="icon" href="<%= BASE_URL %>favicon.ico">
-    <title><%= htmlWebpackPlugin.options.title %></title>
+    <title>27Cards</title>
+    <meta property="og:title" content="27Cards">
+    <meta property="og:description" content="Sophisticated AI will read your mind - and by read your mind - it will guess what card you chose from a deck of 27 cards. Mind blown!">
+    <meta property="og:image" content="<%= BASE_URL %>/images/cards.png">
+    <meta property="og:url" content="https://27cards.net">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="keywords" content="trick, AI, mind read, psychic, entertainment, magic, deck, cards, playing cards, fun, artificial intelligence, machine learning, algorithm, guess, interactive, experience, play, see, watch, deck of cards, 27 cards, 27, cards, magic trick, online magic trick, 27cards.net" />
+    <meta name="description" content="Sophisticated AI will read your mind - and by read your mind - it will guess what card you chose from a deck of 27 cards. Mind blown!" />
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-1X6J3NQ8FJ"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
         gtag('js', new Date());
 
         gtag('config', 'G-1X6J3NQ8FJ');
     </script>
-  </head>
-  <body>
+</head>
+
+<body>
     <noscript>
-      <strong>We're sorry but <%= htmlWebpackPlugin.options.title %> doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
+        <strong>We're sorry but
+            <%= htmlWebpackPlugin.options.title %> doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
     </noscript>
     <div id="app"></div>
     <!-- built files will be auto injected -->
-  </body>
+</body>
 </html>
