@@ -1,14 +1,14 @@
 <template>
     <div ref="step" class="step-3" :key="round">
         <template v-if="round===0">
-            <h1>Select the row <b>your card</b> appears in...</h1>
+            <h1>Select the group <b>your card</b> appears in...</h1>
             <h3>You will do this 3 times</h3>
         </template>
         <template v-if="round===1">
-            <h1>Again, select the row <b>your card</b> appears in...</h1>
+            <h1>Again, select the group <b>your card</b> appears in...</h1>
         </template>
         <template v-if="round===2">
-            <h1>One last time, select the row <b>your card</b> appears in...</h1>
+            <h1>One last time, select the group <b>your card</b> appears in...</h1>
         </template>
         <template v-if="store.cards.stacks.length > 0">
             <div v-for="(stack, index) in store.cards.stacks" class="card-row" :key="index" >
@@ -19,7 +19,7 @@
                 </ul>
 
                 <template v-if="!store.status.loading">
-                    <button @click="select(index)">Row {{index+1}}</button>
+                    <button @click="select(index)">Group {{index+1}}</button>
                 </template>
 
             </div>
